@@ -26,3 +26,4 @@ pnpm-debug.log*
 # original source assets (kept locally, exported into public/ as optimized)
 /Upwork Faceshot - Resized.png
 /www.linkedin.com_*.png
+.vercel

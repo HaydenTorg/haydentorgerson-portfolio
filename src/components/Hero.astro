@@ -2,48 +2,40 @@
 import { profile } from "../data/profile";
 ---
 
-<header id="top" class="relative">
-  <div
-    class="relative h-56 w-full overflow-hidden bg-[var(--color-ink)]/5 sm:h-72"
-  >
-    <img
-      src={profile.hero}
-      alt=""
-      aria-hidden="true"
-      loading="eager"
-      decoding="async"
-      class="h-full w-full object-cover opacity-90"
-    />
+<header
+  id="top"
+  class="mx-auto max-w-(--container-prose) px-6 pt-16 pb-10 sm:pt-24 sm:pb-14"
+>
+  <div class="flex flex-col items-start gap-6 sm:flex-row sm:gap-10">
     <div
-      class="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--color-bone)]"
-    >
-    </div>
-  </div>
-
-  <div class="mx-auto -mt-16 max-w-(--container-prose) px-6 sm:-mt-20">
-    <div
-      class="size-32 overflow-hidden rounded-full border-4 border-[var(--color-bone)] bg-[var(--color-bone)] shadow-sm sm:size-40"
+      class="size-24 shrink-0 overflow-hidden rounded-full bg-[var(--color-ink)]/5 sm:size-28"
     >
       <img
         src={profile.faceshot}
         alt={`Portrait of ${profile.name}`}
-        width="160"
-        height="160"
+        width="112"
+        height="112"
         class="h-full w-full object-cover"
       />
     </div>
 
-    <div class="mt-6">
+    <div>
       <h1
-        class="text-4xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-5xl"
+        class="text-3xl font-semibold tracking-tight text-[var(--color-ink)] sm:text-4xl"
       >
         {profile.name}
       </h1>
-      <p class="mt-3 text-base text-[var(--color-muted)] sm:text-lg">
+      <p class="mt-2 text-sm text-[var(--color-muted)] sm:text-base">
         {profile.tagline}
       </p>
       <p class="mt-1 text-sm text-[var(--color-muted)]">
         {profile.location}
+      </p>
+
+      <p
+        class="mt-5 text-[15px] leading-relaxed text-[var(--color-ink)]/85 sm:text-base"
+      >
+        {profile.bio}
       </p>
     </div>
   </div>

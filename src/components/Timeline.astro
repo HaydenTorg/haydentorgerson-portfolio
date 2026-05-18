@@ -1,20 +1,20 @@
 ---
-import type { Role } from "../data/experience";
+import type { TimelineEntry as Entry } from "../data/timeline";
 import TimelineEntry from "./TimelineEntry.astro";
 
 interface Props {
   id: string;
   title: string;
-  entries: Role[];
+  entries: Entry[];
 }
 
 const { id, title, entries } = Astro.props;
 ---
 
-<section id={id} class="px-6 py-20 sm:py-24">
-  <div class="mx-auto max-w-3xl">
+<section id={id} class="px-6 py-12 sm:py-16">
+  <div class="mx-auto max-w-(--container-prose)">
     <h2
-      class="mb-12 text-xs font-medium tracking-[0.18em] text-[var(--color-muted)] uppercase"
+      class="mb-8 text-xs font-medium tracking-[0.18em] text-[var(--color-muted)] uppercase"
     >
       {title}
     </h2>
@@ -22,7 +22,27 @@ const { id, title, entries } = Astro.props;
     <ol
       class="relative before:absolute before:top-1 before:bottom-1 before:left-2 before:w-px before:bg-[var(--color-rule)] sm:before:left-1/2 sm:before:-translate-x-px"
     >
-      {entries.map((role, i) => <TimelineEntry role={role} index={i} />)}
+      {entries.map((entry, i) => <TimelineEntry entry={entry} index={i} />)}
     </ol>
   </div>
 </section>
+
+<script>
+  const items = document.querySelectorAll<HTMLElement>("[data-reveal]");
+  if ("IntersectionObserver" in window && items.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.18, rootMargin: "0px 0px -8% 0px" },
+    );
+    items.forEach((el) => io.observe(el));
+  } else {
+    items.forEach((el) => el.classList.add("is-visible"));
+  }
+</script>

@@ -8,10 +8,9 @@ export const profile = {
   tagline: "Upcoming Serial Entrepreneur · Bitcoin Enthusiast · AI Operator",
   location: "Scottsdale, Arizona",
   bio: "I'm 18, based in Scottsdale, Arizona, and I've been running ad spend, building businesses, and shipping things since I was 15. Today I run MediaReachPro and operate at the intersection of paid media, AI tooling, and small-business growth.",
-  email: "hayden@mediareachpro.com",
+  email: "haydentorgerson3@gmail.com",
   resumeUrl: "/resume.pdf",
   faceshot: "/faceshot.jpg",
-  hero: "/hero.jpg",
   socials: [
     {
       label: "LinkedIn",

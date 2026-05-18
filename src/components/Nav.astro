@@ -1,19 +1,12 @@
 ---
 import { profile } from "../data/profile";
-
-const links = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Education", href: "#education" },
-  { label: "Skills", href: "#skills" },
-];
 ---
 
 <nav
   class="sticky top-0 z-50 border-b border-[var(--color-rule)] bg-[var(--color-bone)]/85 backdrop-blur"
 >
   <div
-    class="mx-auto flex max-w-(--container-prose) items-center justify-between px-6 py-4"
+    class="mx-auto flex max-w-(--container-prose) items-center justify-between px-6 py-3.5"
   >
     <a
       href="#top"
@@ -21,19 +14,17 @@ const links = [
     >
       {profile.name}
     </a>
-    <ul class="hidden gap-6 text-sm text-[var(--color-muted)] sm:flex">
-      {
-        links.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class="transition-colors hover:text-[var(--color-ink)]"
-            >
-              {link.label}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+    <div class="flex items-center gap-5 text-sm text-[var(--color-muted)]">
+      <a href="#timeline" class="hover:text-[var(--color-ink)]">Timeline</a>
+      <a href="#skills" class="hover:text-[var(--color-ink)]">Skills</a>
+      <a
+        href={profile.resumeUrl}
+        class="text-[var(--color-ink)] underline-offset-4 hover:underline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Resume
+      </a>
+    </div>
   </div>
 </nav>
