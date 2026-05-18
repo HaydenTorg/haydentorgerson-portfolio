@@ -3,34 +3,42 @@ import type { Role } from "../data/experience";
 
 interface Props {
   role: Role;
+  index: number;
 }
 
-const { role } = Astro.props;
+const { role, index } = Astro.props;
+const isLeft = index % 2 === 0;
+
+const contentSide = isLeft
+  ? "sm:pr-[calc(50%+1.75rem)] sm:text-right"
+  : "sm:pl-[calc(50%+1.75rem)]";
 ---
 
-<li class="relative pb-12 pl-8 last:pb-0">
+<li class="relative pb-16 last:pb-0">
   <span
-    class="absolute top-2 left-0 size-2 rounded-full bg-[var(--color-ink)]"
+    class="absolute top-2.5 left-2 size-3 -translate-x-1/2 rounded-full bg-[var(--color-ink)] ring-4 ring-[var(--color-bone)] sm:left-1/2"
     aria-hidden="true"
   ></span>
 
-  <div class="text-xs tracking-wider text-[var(--color-muted)] uppercase">
-    {role.year}
+  <div class={`pl-8 sm:pl-0 ${contentSide}`}>
+    <div class="text-xs tracking-[0.15em] text-[var(--color-muted)] uppercase">
+      {role.year}
+    </div>
+
+    <h3 class="mt-2 text-lg font-medium text-[var(--color-ink)]">
+      {role.title}
+    </h3>
+
+    <div class="mt-0.5 text-sm text-[var(--color-muted)]">
+      {role.company}{role.location ? ` · ${role.location}` : ""}
+    </div>
+
+    {
+      role.description && (
+        <p class="mt-3 text-[15px] leading-relaxed text-[var(--color-ink)]/80">
+          {role.description}
+        </p>
+      )
+    }
   </div>
-
-  <h3 class="mt-1 text-lg font-medium text-[var(--color-ink)]">
-    {role.title}
-  </h3>
-
-  <div class="text-sm text-[var(--color-muted)]">
-    {role.company}{role.location ? ` · ${role.location}` : ""}
-  </div>
-
-  {
-    role.description && (
-      <p class="mt-3 text-[15px] leading-relaxed text-[var(--color-ink)]/80">
-        {role.description}
-      </p>
-    )
-  }
 </li>

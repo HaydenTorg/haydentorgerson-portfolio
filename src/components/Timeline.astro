@@ -1,6 +1,5 @@
 ---
 import type { Role } from "../data/experience";
-import Section from "./Section.astro";
 import TimelineEntry from "./TimelineEntry.astro";
 
 interface Props {
@@ -12,8 +11,18 @@ interface Props {
 const { id, title, entries } = Astro.props;
 ---
 
-<Section id={id} title={title}>
-  <ol class="relative border-l border-[var(--color-rule)]">
-    {entries.map((role) => <TimelineEntry role={role} />)}
-  </ol>
-</Section>
+<section id={id} class="px-6 py-20 sm:py-24">
+  <div class="mx-auto max-w-3xl">
+    <h2
+      class="mb-12 text-xs font-medium tracking-[0.18em] text-[var(--color-muted)] uppercase"
+    >
+      {title}
+    </h2>
+
+    <ol
+      class="relative before:absolute before:top-1 before:bottom-1 before:left-2 before:w-px before:bg-[var(--color-rule)] sm:before:left-1/2 sm:before:-translate-x-px"
+    >
+      {entries.map((role, i) => <TimelineEntry role={role} index={i} />)}
+    </ol>
+  </div>
+</section>
