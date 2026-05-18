@@ -25,6 +25,23 @@ export const timeline: TimelineEntry[] = [
   },
   {
     startYear: 2024,
+    year: "Jul 2024",
+    kind: "milestone",
+    title: "Ran the Spartan Beast",
+    location: "Snowbasin Resort, UT",
+    description:
+      "Mountain obstacle race — ~13 miles and 30+ obstacles up Snowbasin.",
+  },
+  {
+    startYear: 2024,
+    year: "Sep 7, 2024",
+    kind: "milestone",
+    title: "Ran the Mount Nebo Marathon",
+    location: "Utah",
+    description: "26.2 miles through the Wasatch foothills.",
+  },
+  {
+    startYear: 2024,
     year: "Sep 2024 – Nov 2024",
     kind: "experience",
     title: "Sales & Membership Growth",

@@ -20,7 +20,7 @@ const kindLabel =
       ? "Milestone"
       : "Experience";
 
-const delayMs = Math.min(index * 80, 400);
+const delayMs = Math.min(index * 70, 350);
 const metaLine = [entry.company, entry.location].filter(Boolean).join(" · ");
 ---
 
@@ -46,35 +46,39 @@ const metaLine = [entry.company, entry.location].filter(Boolean).join(" · ");
     <div
       data-reveal
       style={`transition-delay: ${delayMs}ms`}
-      class="card inline-block rounded-xl border border-[var(--color-rule)] bg-[var(--color-card)] px-5 py-4 text-left"
+      class="inline-block"
     >
-      <div
-        class="flex items-baseline gap-2 text-xs tracking-[0.14em] text-[var(--color-muted)] uppercase"
+      <article
+        class="card rounded-xl border border-[var(--color-rule)] bg-[var(--color-card)] px-5 py-4 text-left"
       >
-        <span>{entry.year}</span>
-        <span aria-hidden="true">·</span>
-        <span>{kindLabel}</span>
-      </div>
+        <div
+          class="flex items-baseline gap-2 text-xs tracking-[0.14em] text-[var(--color-muted)] uppercase"
+        >
+          <span>{entry.year}</span>
+          <span aria-hidden="true">·</span>
+          <span>{kindLabel}</span>
+        </div>
 
-      <h3 class="mt-2 text-base font-medium text-[var(--color-ink)] sm:text-lg">
-        {entry.title}
-      </h3>
+        <h3 class="mt-2 text-base font-medium text-[var(--color-ink)] sm:text-lg">
+          {entry.title}
+        </h3>
 
-      {
-        metaLine && (
-          <div class="mt-0.5 text-sm text-[var(--color-muted)]">
-            {metaLine}
-          </div>
-        )
-      }
+        {
+          metaLine && (
+            <div class="mt-0.5 text-sm text-[var(--color-muted)]">
+              {metaLine}
+            </div>
+          )
+        }
 
-      {
-        entry.description && (
-          <p class="mt-2.5 text-sm leading-relaxed text-[var(--color-ink)]/80">
-            {entry.description}
-          </p>
-        )
-      }
+        {
+          entry.description && (
+            <p class="mt-2.5 text-sm leading-relaxed text-[var(--color-ink)]/80">
+              {entry.description}
+            </p>
+          )
+        }
+      </article>
     </div>
   </div>
 </li>

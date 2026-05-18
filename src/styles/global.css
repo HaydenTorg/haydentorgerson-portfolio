@@ -35,33 +35,38 @@
   }
 }
 
-/* Scroll-in animation for timeline entries */
+/* Scroll-in animation for timeline entries.
+   The reveal lives on an outer wrapper; the .card inside handles hover.
+   Splitting them keeps the transition-delay (used for staggered reveal)
+   from bleeding into the hover transition, which made late cards feel
+   sluggish to lift. */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translate3d(0, 14px, 0);
   transition:
-    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 550ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
 }
 
 [data-reveal].is-visible {
   opacity: 1;
-  transform: translateY(0);
-  /* swap to a fast transition once revealed so :hover feels snappy */
-  transition:
-    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 220ms ease,
-    background-color 220ms ease,
-    border-color 220ms ease;
+  transform: translate3d(0, 0, 0);
 }
 
-/* Subtle lift on hover for timeline cards */
-.card.is-visible:hover,
-[data-reveal].is-visible.card:hover {
-  transform: translateY(-2px);
-  background-color: #11111110;
-  border-color: #11111122;
-  box-shadow: 0 10px 24px -16px rgba(17, 17, 17, 0.25);
+/* Hover lift on the card itself — no delay, transform-only, GPU-friendly. */
+.card {
+  transition:
+    transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 180ms ease,
+    border-color 180ms ease;
+  will-change: transform;
+}
+
+.card:hover {
+  transform: translate3d(0, -2px, 0);
+  background-color: #1111110f;
+  border-color: #1111111f;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -70,7 +75,9 @@
     transform: none;
     transition: none;
   }
-  [data-reveal].is-visible.card:hover {
+  .card,
+  .card:hover {
     transform: none;
+    transition: none;
   }
 }
