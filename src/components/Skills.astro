@@ -1,0 +1,16 @@
+---
+import Section from "./Section.astro";
+import { profile } from "../data/profile";
+---
+
+<Section id="skills" title="Skills & Tools">
+  <ul class="flex flex-wrap gap-2">
+    {
+      profile.skills.map((skill) => (
+        <li class="rounded-full border border-[var(--color-rule)] px-3 py-1 text-sm text-[var(--color-ink)]/80">
+          {skill}
+        </li>
+      ))
+    }
+  </ul>
+</Section>

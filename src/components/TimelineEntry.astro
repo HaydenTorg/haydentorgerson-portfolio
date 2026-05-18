@@ -1,0 +1,36 @@
+---
+import type { Role } from "../data/experience";
+
+interface Props {
+  role: Role;
+}
+
+const { role } = Astro.props;
+---
+
+<li class="relative pb-12 pl-8 last:pb-0">
+  <span
+    class="absolute top-2 left-0 size-2 rounded-full bg-[var(--color-ink)]"
+    aria-hidden="true"
+  ></span>
+
+  <div class="text-xs tracking-wider text-[var(--color-muted)] uppercase">
+    {role.year}
+  </div>
+
+  <h3 class="mt-1 text-lg font-medium text-[var(--color-ink)]">
+    {role.title}
+  </h3>
+
+  <div class="text-sm text-[var(--color-muted)]">
+    {role.company}{role.location ? ` · ${role.location}` : ""}
+  </div>
+
+  {
+    role.description && (
+      <p class="mt-3 text-[15px] leading-relaxed text-[var(--color-ink)]/80">
+        {role.description}
+      </p>
+    )
+  }
+</li>

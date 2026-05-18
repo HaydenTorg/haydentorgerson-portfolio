@@ -1,0 +1,17 @@
+---
+interface Props {
+  id: string;
+  title: string;
+}
+
+const { id, title } = Astro.props;
+---
+
+<section id={id} class="mx-auto max-w-(--container-prose) px-6 py-20 sm:py-24">
+  <h2
+    class="mb-10 text-xs font-medium tracking-[0.18em] text-[var(--color-muted)] uppercase"
+  >
+    {title}
+  </h2>
+  <slot />
+</section>

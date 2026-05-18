@@ -1,0 +1,19 @@
+---
+import type { Role } from "../data/experience";
+import Section from "./Section.astro";
+import TimelineEntry from "./TimelineEntry.astro";
+
+interface Props {
+  id: string;
+  title: string;
+  entries: Role[];
+}
+
+const { id, title, entries } = Astro.props;
+---
+
+<Section id={id} title={title}>
+  <ol class="relative border-l border-[var(--color-rule)]">
+    {entries.map((role) => <TimelineEntry role={role} />)}
+  </ol>
+</Section>
