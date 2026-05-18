@@ -9,8 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "resume": "bash scripts/build-resume.sh"
+    "astro": "astro"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
