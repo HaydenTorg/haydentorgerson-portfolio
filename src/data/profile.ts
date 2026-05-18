@@ -7,7 +7,7 @@ export const profile = {
   name: "Hayden Torgerson",
   tagline: "Upcoming Serial Entrepreneur · Bitcoin Enthusiast · AI Operator",
   location: "Scottsdale, Arizona",
-  bio: "I'm 18, based in Scottsdale, Arizona, and I've been running ad spend, building businesses, and shipping things since I was 15. Today I run MediaReachPro and operate at the intersection of paid media, AI tooling, and small-business growth.",
+  bio: "I'm 18, based in Scottsdale, Arizona. I've been running ad spend, closing sales, and building businesses since I was 15 — from car detailing in Utah, through fitness gyms, summer solar door-to-door, and now MediaReach. Currently shifting focus toward learning, testing, and growing in e-commerce.",
   email: "haydentorgerson3@gmail.com",
   resumeUrl: "/resume.pdf",
   faceshot: "/faceshot.jpg",

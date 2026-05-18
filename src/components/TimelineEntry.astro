@@ -13,21 +13,40 @@ const contentSide = isLeft
   ? "sm:pr-[calc(50%+1.5rem)] sm:text-right"
   : "sm:pl-[calc(50%+1.5rem)]";
 
-const kindLabel = entry.kind === "education" ? "Education" : "Experience";
+const kindLabel =
+  entry.kind === "education"
+    ? "Education"
+    : entry.kind === "milestone"
+      ? "Milestone"
+      : "Experience";
+
 const delayMs = Math.min(index * 80, 400);
+const metaLine = [entry.company, entry.location].filter(Boolean).join(" · ");
 ---
 
 <li class="relative pb-8 last:pb-0">
-  <span
-    class="absolute top-4 left-2 size-3 -translate-x-1/2 rounded-full bg-[var(--color-ink)] ring-4 ring-[var(--color-bone)] sm:left-1/2"
-    aria-hidden="true"
-  ></span>
+  {
+    entry.current ? (
+      <span
+        class="absolute top-4 left-2 size-3 -translate-x-1/2 sm:left-1/2"
+        aria-hidden="true"
+      >
+        <span class="absolute inset-0 inline-flex size-full animate-ping rounded-full bg-[var(--color-current)] opacity-60 [animation-duration:2.4s]" />
+        <span class="relative inline-flex size-full rounded-full bg-[var(--color-current)] ring-4 ring-[var(--color-bone)]" />
+      </span>
+    ) : (
+      <span
+        class="absolute top-4 left-2 size-3 -translate-x-1/2 rounded-full bg-[var(--color-ink)] ring-4 ring-[var(--color-bone)] sm:left-1/2"
+        aria-hidden="true"
+      />
+    )
+  }
 
   <div class={`pl-8 sm:pl-0 ${contentSide}`}>
     <div
       data-reveal
       style={`transition-delay: ${delayMs}ms`}
-      class="inline-block rounded-xl border border-[var(--color-rule)] bg-[var(--color-card)] px-5 py-4 text-left"
+      class="card inline-block rounded-xl border border-[var(--color-rule)] bg-[var(--color-card)] px-5 py-4 text-left"
     >
       <div
         class="flex items-baseline gap-2 text-xs tracking-[0.14em] text-[var(--color-muted)] uppercase"
@@ -41,9 +60,13 @@ const delayMs = Math.min(index * 80, 400);
         {entry.title}
       </h3>
 
-      <div class="mt-0.5 text-sm text-[var(--color-muted)]">
-        {entry.company}{entry.location ? ` · ${entry.location}` : ""}
-      </div>
+      {
+        metaLine && (
+          <div class="mt-0.5 text-sm text-[var(--color-muted)]">
+            {metaLine}
+          </div>
+        )
+      }
 
       {
         entry.description && (

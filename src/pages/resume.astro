@@ -189,7 +189,8 @@ const linkedinHandle = profile.socials.find((s) => s.label === "LinkedIn");
               <div class="year">{entry.year}</div>
               <div>
                 <h3>
-                  {entry.title} — {entry.company}
+                  {entry.title}
+                  {entry.company ? <> — {entry.company}</> : null}
                 </h3>
                 {entry.location && <div class="meta">{entry.location}</div>}
                 <p>{entry.description}</p>
@@ -207,7 +208,8 @@ const linkedinHandle = profile.socials.find((s) => s.label === "LinkedIn");
               <div class="year">{entry.year}</div>
               <div>
                 <h3>
-                  {entry.title} — {entry.company}
+                  {entry.title}
+                  {entry.company ? <> — {entry.company}</> : null}
                 </h3>
                 {entry.location && <div class="meta">{entry.location}</div>}
                 <p>{entry.description}</p>
