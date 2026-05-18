@@ -30,7 +30,7 @@ export const timeline: TimelineEntry[] = [
     title: "Ran the Spartan Beast",
     location: "Snowbasin Resort, UT",
     description:
-      "Mountain obstacle race — ~13 miles and 30+ obstacles up Snowbasin.",
+      "Mountain obstacle race — ~13 miles and 30+ obstacles up Snowbasin. Ran it solo, and it was only my second serious hike ever.",
   },
   {
     startYear: 2024,
@@ -38,7 +38,7 @@ export const timeline: TimelineEntry[] = [
     kind: "milestone",
     title: "Ran the Mount Nebo Marathon",
     location: "Utah",
-    description: "26.2 miles through the Wasatch foothills.",
+    description: "26.2 miles through the Wasatch foothills — ran it solo.",
   },
   {
     startYear: 2024,
@@ -72,22 +72,22 @@ export const timeline: TimelineEntry[] = [
   },
   {
     startYear: 2025,
-    year: "Dec 2025",
+    year: "May 2025",
     kind: "education",
     title: "Graduated Early",
     company: "Pleasant Grove High School",
     location: "Pleasant Grove, UT",
     description:
-      "Started 9th grade in September 2022 and graduated early in December 2025 — 3.5 years instead of four, with work and businesses running the whole time.",
+      "Graduated early — about three weeks into the summer sales run in Florida — with work and businesses running alongside school the whole time.",
   },
   {
     startYear: 2026,
-    year: "2026",
-    kind: "milestone",
-    title: "Moved to Scottsdale",
+    year: "2026 – Present",
+    kind: "experience",
+    title: "Signature Aviation",
     location: "Scottsdale, AZ",
     description:
-      "After summer sales, moved to Scottsdale, Arizona — where I'm based now.",
+      "After summer sales, moved to Scottsdale. Working at Signature Aviation while focusing in on the e-commerce industry — learning, testing, and growing in there.",
     current: true,
   },
 ];
